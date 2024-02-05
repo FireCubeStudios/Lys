@@ -33,13 +33,18 @@ DEFINE_GRADIENT_PALETTE(greenblack_mode2){
   255,0,0,0
 };
 
-DEFINE_GRADIENT_PALETTE(greenblue_mode3){
+DEFINE_GRADIENT_PALETTE(greenblue_mode3){ // Edit green blue for led mode 5
   0,   0, 255, 0,   // Green
   51,  0, 255, 31,  // Lighter Green
   111,  0, 255, 71,  // Lighter Green
   204, 0, 0, 250,   // Blue
   255, 0, 0, 0      // Black
 };
+
+// Colors for led mode 5
+int led51 = 210;
+int led52 = 230;
+int led53 = 255;
 
 CRGBPalette16 myPalette0 = greenorange_mode0;
 CRGBPalette16 myPalette1 = greenorange_mode1;
@@ -450,9 +455,9 @@ void LEDMode5(){
   uint16_t pos0 = map(beat8(25,0),0,255,0,NUM_LEDS-1);
   uint16_t pos1 = map(beat8(21,400),0,255,0,NUM_LEDS-1);
   uint16_t pos2 = map(beat8(18,800),0,255,0,NUM_LEDS-1);
-  leds[pos0] = CRGB(0, 0, 210);
-  leds[pos1] = CRGB(0, 50, 230);
-  leds[pos2] = CRGB(0, 90, 255);
+  leds[pos0] = CRGB(0, 0, led51);
+  leds[pos1] = CRGB(0, 50, led52);
+  leds[pos2] = CRGB(0, 90, led53);
 
   EVERY_N_MILLISECONDS(1){
     for(int i=0;i<4;i++){
